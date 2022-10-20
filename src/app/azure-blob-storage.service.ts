@@ -7,9 +7,9 @@ import { BlobServiceClient, ContainerClient } from '@azure/storage-blob';
 export class AzureBlobStorageService {
 
   // Enter your storage account name
-  picturesAccount = "<>";
+  picturesAccount = "storagefilesangular";
   // container name
-  picturesContainer = "pictures";
+  picturesContainer = "files";
 
   // +IMAGES
   public uploadImage(sas: string, content: Blob, name: string, handler: () => void) {
@@ -63,6 +63,6 @@ export class AzureBlobStorageService {
 
   private containerClient(sas: string): ContainerClient {
     return new BlobServiceClient(`https://${this.picturesAccount}.blob.core.windows.net?${sas}`)
-            .getContainerClient(this.picturesContainer);
+      .getContainerClient(this.picturesContainer);
   }
 }
